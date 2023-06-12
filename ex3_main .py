@@ -14,10 +14,10 @@ def lkDemo(img_path):
     img_1 = cv2.resize(img_1, (0, 0), fx=.5, fy=0.5)
     t = np.array([[1, 0, -.2],
                   [0, 1, -.1],
-                  [0, 0, 1]], dtype=np.float)
+                  [0, 0, 1]], dtype=float)
     img_2 = cv2.warpPerspective(img_1, t, img_1.shape[::-1])
     st = time.time()
-    pts, uv = opticalFlow(img_1.astype(np.float), img_2.astype(np.float), step_size=20, win_size=5)
+    pts, uv = opticalFlow(img_1.astype(float), img_2.astype(float), step_size=20, win_size=5)
     et = time.time()
 
     print("Time: {:.4f}".format(et - st))
